@@ -1,7 +1,17 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard1.4</TargetFramework>
+    <PackageId>HBBq.WakaWakaLib</PackageId>
+    <PackageVersion>1.0.0</PackageVersion>
+    <Authors>HBBq</Authors>
+    <Description>.Net wrapper for the WakaTime API</Description>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageReleaseNotes></PackageReleaseNotes>
+    <Copyright>Copyright 2017 (c) HBBq. All rights reserved.</Copyright>
+    <PackageTags>WakaTime</PackageTags>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Version>1.0.0</Version>
   </PropertyGroup>
 
 </Project>
