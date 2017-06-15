@@ -9,21 +9,24 @@ using Shouldly;
 namespace WakaWakaLib.Tests.Processing
 {
 
-    public class MApper
+    public class Mapper
     {
 
         [Fact]
-        public void t()
+        public void FromJson_User()
         {
-            var s = @"{""id"": ""abc"",
-                        ""has_premium_features"": false,
-                        ""display_name"": ""xxx"",
-                        ""full_name"": ""yyy""
+            var s = @"{""id"": ""id"",
+                        ""has_premium_features"": true,
+                        ""display_name"": ""display name"",
+                        ""full_name"": ""full name""
                      }";
 
             var o = WakaWakaLib.Processing.Mapper.FromJson<WakaWakaLib.Models.User>(s);
 
-            o.FullName.ShouldBe("yyy");
+            o.Id.ShouldBe("id");
+            o.HasPremiumFeatures.ShouldBe(true);
+            o.DisplayName.ShouldBe("display name");
+            o.FullName.ShouldBe("full name");
 
         }
 
