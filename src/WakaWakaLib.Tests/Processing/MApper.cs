@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 using Shouldly;
 
@@ -18,7 +14,7 @@ namespace WakaWakaLib.Tests.Processing
 
             var s = Properties.Resources.UserDataJson;
 
-            var user = WakaWakaLib.Processing.Mapper.FromJson<WakaWakaLib.Models.User>(s);
+            var user = WakaWakaLib.Processing.Mapper.FromJson<Models.User>(s);
 
             user.ShouldNotBeNull();
                         

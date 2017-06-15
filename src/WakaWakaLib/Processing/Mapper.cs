@@ -1,9 +1,5 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Linq;
 using Newtonsoft.Json.Linq;
 
 namespace WakaWakaLib.Processing
