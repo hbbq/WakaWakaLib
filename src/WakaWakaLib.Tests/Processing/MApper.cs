@@ -22,7 +22,7 @@ namespace WakaWakaLib.Tests.Processing
             user.DisplayName.ShouldBe("display name");
             user.Email.ShouldBe("email");
             user.EmailPublic.ShouldBe(true);
-            user.FullName.ShouldBe("full name");
+            user.FullName.ShouldBe("full name, testing of failing test");
             user.HasPremiumFeatures.ShouldBe(true);
             user.HumanReadableWebsite.ShouldBe("human readable website");
             user.Id.ShouldBe("id");
