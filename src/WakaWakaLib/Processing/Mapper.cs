@@ -14,21 +14,21 @@ namespace WakaWakaLib.Processing
         public static T FromJson<T>(string json) where T: new()
         {
 
-            var x = new T();
+            var obj = new T();
 
-            JsonConvert.PopulateObject(json, x, new JsonSerializerSettings
+            JsonConvert.PopulateObject(json, obj, new JsonSerializerSettings
             {
                 ContractResolver = new DefaultContractResolver
                 {
-                    NamingStrategy = new ns()
+                    NamingStrategy = new PascalCaseToSnakeCase()
                 }
             });
 
-            return x;
+            return obj;
 
         }
 
-        private class ns : NamingStrategy
+        private class PascalCaseToSnakeCase : NamingStrategy
         {
             protected override string ResolvePropertyName(string name)
             {
