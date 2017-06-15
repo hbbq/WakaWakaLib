@@ -28,7 +28,7 @@ namespace WakaWakaLib.Processing
 
         }
 
-        public class PascalCaseToSnakeCase : NamingStrategy
+        private class PascalCaseToSnakeCase : NamingStrategy
         {
             protected override string ResolvePropertyName(string name)
             {
