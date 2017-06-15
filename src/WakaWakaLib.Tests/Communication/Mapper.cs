@@ -3,7 +3,7 @@ using Xunit;
 using Shouldly;
 using System.Collections.Generic;
 
-namespace WakaWakaLib.Tests.Processing
+namespace WakaWakaLib.Tests.Communication
 {
 
     public class Mapper
@@ -15,7 +15,7 @@ namespace WakaWakaLib.Tests.Processing
 
             var s = Properties.Resources.UserDataJson;
 
-            var user = WakaWakaLib.Processing.Mapper.FromJson<Models.User>(s);
+            var user = WakaWakaLib.Communication.Mapper.FromJson<Models.User>(s);
 
             user.ShouldNotBeNull();
                         
@@ -52,7 +52,7 @@ namespace WakaWakaLib.Tests.Processing
 
             var s = Properties.Resources.UserAgentDataJson;
 
-            var userAgent = WakaWakaLib.Processing.Mapper.FromJson<Models.UserAgent>(s);
+            var userAgent = WakaWakaLib.Communication.Mapper.FromJson<Models.UserAgent>(s);
 
             userAgent.ShouldNotBeNull();
 
@@ -72,7 +72,7 @@ namespace WakaWakaLib.Tests.Processing
 
             var s = Properties.Resources.UserAgentListDataJson;
 
-            var userAgents = WakaWakaLib.Processing.Mapper.FromJson<List<Models.UserAgent>>(s);
+            var userAgents = WakaWakaLib.Communication.Mapper.FromJson<List<Models.UserAgent>>(s);
 
             userAgents.ShouldNotBeNull();
 
@@ -103,7 +103,7 @@ namespace WakaWakaLib.Tests.Processing
 
             var s = Properties.Resources.UserAgentDataJson;
 
-            var userAgents = WakaWakaLib.Processing.Mapper.FromJson<List<Models.UserAgent>>(s);
+            var userAgents = WakaWakaLib.Communication.Mapper.FromJson<List<Models.UserAgent>>(s);
 
             userAgents.ShouldNotBeNull();
 

@@ -3,7 +3,7 @@ using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json.Linq;
 using System.Collections;
 
-namespace WakaWakaLib.Processing
+namespace WakaWakaLib.Communication
 {
 
     public class Mapper
