@@ -34,7 +34,7 @@ namespace WakaWakaLib.Tests.Processing
         public void PascalCaseToSnakeCase()
         {
             
-            var c = new WakaWakaLib.Processing.PascalCaseToSnakeCase();
+            var c = new WakaWakaLib.Processing.Mapper.PascalCaseToSnakeCase();
             c.ResolvePropertyName("TestPropName").ShouldBe("test_prop_name");
 
         }
