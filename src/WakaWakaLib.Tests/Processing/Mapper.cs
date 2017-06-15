@@ -1,6 +1,7 @@
 ﻿using System;
 using Xunit;
 using Shouldly;
+using System.Collections.Generic;
 
 namespace WakaWakaLib.Tests.Processing
 {
@@ -26,7 +27,7 @@ namespace WakaWakaLib.Tests.Processing
             user.HasPremiumFeatures.ShouldBe(true);
             user.HumanReadableWebsite.ShouldBe("human readable website");
             user.Id.ShouldBe("id");
-            user.IsEmailConfirmed.ShouldBe(true);
+            user.IsEmailConfirmed.ShouldBe(new DateTime(2001, 1, 1));
             user.IsHireable.ShouldBe(true);
             user.LanguagesUsedPublic.ShouldBe(true);
             user.LastHeartbeat.ShouldBe(new DateTime(2001, 1, 1));
@@ -40,9 +41,82 @@ namespace WakaWakaLib.Tests.Processing
             user.PhotoPublic.ShouldBe(true);
             user.Plan.ShouldBe("plan");
             user.Timezone.ShouldBe("timezone");
-            user.Username.ShouldBe("username");
+            user.Username.ShouldBeNull();
             user.Website.ShouldBe("website");
             
+        }
+
+        [Fact]
+        public void FromJson_UserAgent()
+        {
+
+            var s = Properties.Resources.UserAgentDataJson;
+
+            var userAgent = WakaWakaLib.Processing.Mapper.FromJson<Models.UserAgent>(s);
+
+            userAgent.ShouldNotBeNull();
+
+            userAgent.CreatedAt.ShouldBe(new DateTime(2001, 1, 1));
+            userAgent.Editor.ShouldBe("editor");
+            userAgent.Id.ShouldBe("id");
+            userAgent.LastSeen.ShouldBe(new DateTime(2001, 1, 1));
+            userAgent.OS.ShouldBe("os");
+            userAgent.Value.ShouldBe("value");
+            userAgent.Version.ShouldBe("version");
+
+        }
+
+        [Fact]
+        public void FromJson_UserAgentList()
+        {
+
+            var s = Properties.Resources.UserAgentListDataJson;
+
+            var userAgents = WakaWakaLib.Processing.Mapper.FromJson<List<Models.UserAgent>>(s);
+
+            userAgents.ShouldNotBeNull();
+
+            userAgents.Count.ShouldBe(2);
+
+            userAgents[0].CreatedAt.ShouldBe(new DateTime(2001, 1, 1));
+            userAgents[0].Editor.ShouldBe("editor");
+            userAgents[0].Id.ShouldBe("id");
+            userAgents[0].LastSeen.ShouldBe(new DateTime(2001, 1, 1));
+            userAgents[0].OS.ShouldBe("os");
+            userAgents[0].Value.ShouldBe("value");
+            userAgents[0].Version.ShouldBe("version");
+
+            userAgents[1].CreatedAt.ShouldBe(new DateTime(2001, 1, 1));
+            userAgents[1].Editor.ShouldBe("editor2");
+            userAgents[1].Id.ShouldBe("id2");
+            userAgents[1].LastSeen.ShouldBe(new DateTime(2001, 1, 1));
+            userAgents[1].OS.ShouldBe("os2");
+            userAgents[1].Value.ShouldBe("value2");
+            userAgents[1].Version.ShouldBe("version2");
+
+        }
+
+
+        [Fact]
+        public void FromJson_UserAgentList_FromSingle()
+        {
+
+            var s = Properties.Resources.UserAgentDataJson;
+
+            var userAgents = WakaWakaLib.Processing.Mapper.FromJson<List<Models.UserAgent>>(s);
+
+            userAgents.ShouldNotBeNull();
+
+            userAgents.Count.ShouldBe(1);
+
+            userAgents[0].CreatedAt.ShouldBe(new DateTime(2001, 1, 1));
+            userAgents[0].Editor.ShouldBe("editor");
+            userAgents[0].Id.ShouldBe("id");
+            userAgents[0].LastSeen.ShouldBe(new DateTime(2001, 1, 1));
+            userAgents[0].OS.ShouldBe("os");
+            userAgents[0].Value.ShouldBe("value");
+            userAgents[0].Version.ShouldBe("version");
+
         }
 
     }

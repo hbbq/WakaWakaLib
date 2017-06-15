@@ -88,5 +88,11 @@
   <ItemGroup>
     <None Include="Resources\UserDataJson.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UserAgentDataJson.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UserAgentListDataJson.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -64,7 +64,56 @@ namespace WakaWakaLib.Tests.Properties {
         ///   Looks up a localized string similar to {
         ///  &quot;data&quot;: {
         ///    &quot;id&quot;: &quot;id&quot;,
-        ///    &quot;has_premium_features&quot;: &quot;has premium features&quot;,
+        ///    &quot;value&quot;: &quot;value&quot;,
+        ///    &quot;editor&quot;: &quot;editor&quot;,
+        ///    &quot;version&quot;: &quot;version&quot;,
+        ///    &quot;os&quot;: &quot;os&quot;,
+        ///    &quot;last_seen&quot;: &quot;2001-01-01T00:00:00&quot;,
+        ///    &quot;created_at&quot;: &quot;2001-01-01T00:00:00&quot;,
+        ///  },
+        ///}.
+        /// </summary>
+        internal static string UserAgentDataJson {
+            get {
+                return ResourceManager.GetString("UserAgentDataJson", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {
+        ///  &quot;data&quot;: [
+        ///	{
+        ///		&quot;id&quot;: &quot;id&quot;,
+        ///		&quot;value&quot;: &quot;value&quot;,
+        ///		&quot;editor&quot;: &quot;editor&quot;,
+        ///		&quot;version&quot;: &quot;version&quot;,
+        ///		&quot;os&quot;: &quot;os&quot;,
+        ///		&quot;last_seen&quot;: &quot;2001-01-01T00:00:00&quot;,
+        ///		&quot;created_at&quot;: &quot;2001-01-01T00:00:00&quot;,
+        ///	},
+        ///	{
+        ///		&quot;id&quot;: &quot;id2&quot;,
+        ///		&quot;value&quot;: &quot;value2&quot;,
+        ///		&quot;editor&quot;: &quot;editor2&quot;,
+        ///		&quot;version&quot;: &quot;version2&quot;,
+        ///		&quot;os&quot;: &quot;os2&quot;,
+        ///		&quot;last_seen&quot;: &quot;2001-01-01T00:00:00&quot;,
+        ///		&quot;created_at&quot;: &quot;2001-01-01T00:00:00&quot;,
+        ///	},
+        ///  ]
+        ///}.
+        /// </summary>
+        internal static string UserAgentListDataJson {
+            get {
+                return ResourceManager.GetString("UserAgentListDataJson", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {
+        ///  &quot;data&quot;: {
+        ///    &quot;id&quot;: &quot;id&quot;,
+        ///    &quot;has_premium_features&quot;: true,
         ///    &quot;display_name&quot;: &quot;display name&quot;,
         ///    &quot;full_name&quot;: &quot;full name&quot;,
         ///    &quot;email&quot;: &quot;email&quot;,
@@ -72,13 +121,14 @@ namespace WakaWakaLib.Tests.Properties {
         ///    &quot;email_public&quot;: true,
         ///    &quot;is_email_confirmed&quot;: true,
         ///    &quot;photo_public&quot;: true,
-        ///    &quot;timezone&quot;: &quot;time zone&quot;,
+        ///    &quot;timezone&quot;: &quot;timezone&quot;,
         ///    &quot;last_heartbeat&quot;: &quot;2001-01-01T00:00:00&quot;,
         ///    &quot;last_plugin&quot;: &quot;last plugin&quot;,
         ///    &quot;last_plugin_name&quot;: &quot;last plugin name&quot;,
         ///    &quot;last_project&quot;: &quot;last project&quot;,
         ///    &quot;plan&quot;: &quot;plan&quot;,
-        ///    &quot;userna [rest of string was truncated]&quot;;.
+        ///    &quot;username&quot;: &quot;username&quot;,
+        ///  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string UserDataJson {
             get {

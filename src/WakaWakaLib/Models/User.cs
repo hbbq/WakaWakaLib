@@ -13,7 +13,7 @@ namespace WakaWakaLib.Models
         public string Email { get; set; }
         public string Photo { get; set; }
         public bool EmailPublic { get; set; }
-        public bool IsEmailConfirmed { get; set; }
+        public DateTime IsEmailConfirmed { get; set; }
         public bool PhotoPublic { get; set; }
         public string Timezone { get; set; }
         public DateTime LastHeartbeat { get; set; }

@@ -1,0 +1,11 @@
+{
+  "data": {
+    "id": "id",
+    "value": "value",
+    "editor": "editor",
+    "version": "version",
+    "os": "os",
+    "last_seen": "2001-01-01T00:00:00",
+    "created_at": "2001-01-01T00:00:00",
+  },
+}
