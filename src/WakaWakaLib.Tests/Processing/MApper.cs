@@ -15,21 +15,40 @@ namespace WakaWakaLib.Tests.Processing
         [Fact]
         public void FromJson_User()
         {
-            var s = @"{""id"": ""id"",
-                        ""has_premium_features"": true,
-                        ""display_name"": ""display name"",
-                        ""full_name"": ""full name""
-                     }";
 
-            var o = WakaWakaLib.Processing.Mapper.FromJson<WakaWakaLib.Models.User>(s);
+            var s = Properties.Resources.UserDataJson;
 
-            o.Id.ShouldBe("id");
-            o.HasPremiumFeatures.ShouldBe(true);
-            o.DisplayName.ShouldBe("display name");
-            o.FullName.ShouldBe("full name");
+            var user = WakaWakaLib.Processing.Mapper.FromJson<WakaWakaLib.Models.User>(s);
 
+            user.ShouldNotBeNull();
+                        
+            user.CreatedAt.ShouldBe(new DateTime(2001, 1, 1));
+            user.DisplayName.ShouldBe("display name");
+            user.Email.ShouldBe("email");
+            user.EmailPublic.ShouldBe(true);
+            user.FullName.ShouldBe("full name");
+            user.HasPremiumFeatures.ShouldBe(true);
+            user.HumanReadableWebsite.ShouldBe("human readable website");
+            user.Id.ShouldBe("id");
+            user.IsEmailConfirmed.ShouldBe(true);
+            user.IsHireable.ShouldBe(true);
+            user.LanguagesUsedPublic.ShouldBe(true);
+            user.LastHeartbeat.ShouldBe(new DateTime(2001, 1, 1));
+            user.LastPlugin.ShouldBe("last plugin");
+            user.LastPluginName.ShouldBe("last plugin name");
+            user.LastProject.ShouldBe("last project");
+            user.Location.ShouldBe("location");
+            user.LoggedTimePublic.ShouldBe(true);
+            user.ModifiedAt.ShouldBe(new DateTime(2001, 1, 1));
+            user.Photo.ShouldBe("photo");
+            user.PhotoPublic.ShouldBe(true);
+            user.Plan.ShouldBe("plan");
+            user.Timezone.ShouldBe("timezone");
+            user.Username.ShouldBe("username");
+            user.Website.ShouldBe("website");
+            
         }
 
     }
-
+    
 }

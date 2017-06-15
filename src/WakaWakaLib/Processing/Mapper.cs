@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using Newtonsoft.Json.Linq;
 
 namespace WakaWakaLib.Processing
 {
@@ -14,28 +15,20 @@ namespace WakaWakaLib.Processing
         public static T FromJson<T>(string json) where T: new()
         {
 
-            var obj = new T();
+            var j = JObject.Parse(json);
 
-            JsonConvert.PopulateObject(json, obj, new JsonSerializerSettings
+            var obj = JsonConvert.DeserializeObject<T>(j["data"].ToString(), new JsonSerializerSettings
             {
                 ContractResolver = new DefaultContractResolver
                 {
-                    NamingStrategy = new PascalCaseToSnakeCase()
+                    NamingStrategy = new SnakeCaseNamingStrategy()
                 }
             });
 
             return obj;
 
         }
-
-        private class PascalCaseToSnakeCase : NamingStrategy
-        {
-            protected override string ResolvePropertyName(string name)
-            {
-                return string.Join("", name.ToCharArray().Select(o => o.ToString()).Select(o => o == o.ToLower() ? o : "_" + o.ToLower()).ToArray()).Trim('_');
-            }
-        }
-
+        
     }
 
 }
