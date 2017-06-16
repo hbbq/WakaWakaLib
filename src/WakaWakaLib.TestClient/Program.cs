@@ -10,6 +10,8 @@ namespace WakaWakaLib.TestClient
         static void Main(string[] args)
         {
 
+            // Testing 
+
             var key = "<secret api key>";
 
             var r = WakaWakaLib.Communication.RawRequest.GetAsync(@"https://wakatime.com/api/v1/users/current", key);
