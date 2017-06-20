@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,25 +14,11 @@ namespace WakaWakaLib.Communication
         {
             try
             {
-                using (var client = new System.Net.Http.HttpClient())
-                {
+                using (var client = GetHttpClient(apiKey))
+                {                    
                     
-                    if(apiKey != null)
-                    {
-                        client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue(
-                            "Basic", 
-                            Convert.ToBase64String(Encoding.ASCII.GetBytes(apiKey))
-                        );
-                    }
-                    var message = await client.GetAsync(url);
-                    var content = await message.Content.ReadAsStringAsync();
-                    var response = new RawResponse
-                    {
-                        Success = message.IsSuccessStatusCode,
-                        Code = (int)message.StatusCode,
-                        Content = content
-                    };
-                    return response;
+                    return await WrapResponse(await client.GetAsync(url));
+
                 }
             }
             catch(Exception e)
@@ -42,6 +29,31 @@ namespace WakaWakaLib.Communication
                 };
             }
 
+        }
+
+        private static HttpClient GetHttpClient(string apiKey = null)
+        {
+            var client = new HttpClient();
+            if (apiKey != null)
+            {
+                client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue(
+                    "Basic",
+                    Convert.ToBase64String(Encoding.ASCII.GetBytes(apiKey))
+                );
+            }
+            return client;
+        }
+
+        private static async Task<RawResponse> WrapResponse(HttpResponseMessage message)
+        {
+            var content = await message.Content.ReadAsStringAsync();
+            var response = new RawResponse
+            {
+                Success = message.IsSuccessStatusCode,
+                Code = (int)message.StatusCode,
+                Content = content
+            };
+            return response;
         }
 
     }
