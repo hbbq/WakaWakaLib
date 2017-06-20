@@ -15,10 +15,9 @@ namespace WakaWakaLib.Communication
             try
             {
                 using (var client = GetHttpClient(apiKey))
-                {                    
-                    
+                {                                        
+                    //SendAsync?
                     return await WrapResponse(await client.GetAsync(url));
-
                 }
             }
             catch(Exception e)
