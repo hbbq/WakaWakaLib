@@ -24,9 +24,15 @@ namespace WakaWakaLib.TestClient
 
             var api = new WakaWakaLib.ApiV1(key);
 
-            var me = api.Users.GetCurrent().Value;
+            var user = api.Users.GetCurrent();
 
-            var projects = api.Projects.Get().Value;
+            if (!user.Success) throw new Exception($"Error getting user ({user.Error})");
+
+            var projects = api.Projects.Get();
+
+            if (!projects.Success) throw new Exception($"Error getting projects ({projects.Error})");
+
+            Console.ReadKey();
 
         }
     }
