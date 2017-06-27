@@ -14,9 +14,19 @@ namespace WakaWakaLib.TestClient
 
             var key = "<secret api key>";
 
-            var r = WakaWakaLib.Communication.RawRequest.GetAsync(@"https://wakatime.com/api/v1/users/current", key);
-            var rr = r.Result;
-            var rrr = WakaWakaLib.Communication.Response<Models.User>.Create(rr);
+            var configFile = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".wakatime.cfg");
+
+            var ret = new StringBuilder(2083);
+
+            key = NativeMethods.GetPrivateProfileString("settings", "api_key", "", ret, 2083, configFile) > 0
+                ? ret.ToString()
+                : "";
+
+            var api = new WakaWakaLib.ApiV1(key);
+
+            var me = api.Users.GetCurrent().Value;
+
+            var projects = api.Projects.Get().Value;
 
         }
     }
